@@ -1794,7 +1794,7 @@
                         <label class="radio-option">
                             <input type="radio" name="attendance" value="Да" required>
                             <span class="radio-custom"></span>
-                            <span class="option-text" id="go-text">С удовольствием 🎉</span>
+                            <span class="option-text" id="go-text">С удовольствием приду 🎉</span>
                         </label>
                         <label class="radio-option">
                             <input type="radio" name="attendance" value="Нет">
@@ -1941,29 +1941,33 @@
                 }
                 // 1.2
 
-                var greetingText = "Этим летом произойдёт важное событие — мы станем семьёй. И нам очень хочется разделить этот день с ";
                 const greetingTextElem = document.getElementById('greeting-text');
-                if (gender === 'c') {
-                    greetingText += "вами!";
-                } else {
-                    greetingText += "тобой!";
-                }
-                if (greetingTextElem) {
-                    greetingTextElem.textContent = greetingText;
+                var greetingText = "Этим летом произойдёт важное событие — мы станем семьёй. И нам очень хочется разделить этот день с тобой!";
+                if (gender === 'f' || gender === 'm') {
+                    if (greetingTextElem) {
+                        greetingTextElem.textContent = greetingText;
+                    }
                 }
 
                 // 1.3.
 
-                var goText = "С удовольствием ";
+                var goText = "С удовольствием придём 🎉";
                 const goTextElem = document.getElementById('go-text');
                 if (gender === 'c') {
-                    goText += "придём 🎉";
-                } else {
-                    goText += "приду 🎉";
+                    if (goTextElem) {
+                        goTextElem.textContent = goText;
+                    }
                 }
-                if (goTextElem) {
-                    goTextElem.textContent = goText;
+
+                // 1.4
+                var attText = "К сожалению, не сможем присутствовать 😔";
+                const attTextElem = document.getElementById('att-text');
+                if (gender === 'c') {
+                    if (attTextElem) {
+                        attTextElem.textContent = attText;
+                    }
                 }
+
 
                 // 2. Автозаполняем имя в форме и скрываем поле
                 const nameInput = document.getElementById('guest-name');
