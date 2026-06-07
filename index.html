@@ -1322,6 +1322,9 @@
     </style>
 </head>
 <body>
+    <audio id="bg-music" loop preload="auto">
+        <source src="Taylor Swift - Enchanted.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Envelope Intro Screen -->
     <div id="envelope-screen">
@@ -1953,6 +1956,13 @@
             envelopeScreen.classList.add('hidden');
             mainContent.classList.add('visible');
             startParticles();
+            
+            // Запускаем музыку 
+            const music = document.getElementById('bg-music');
+            music.play().catch(error => {
+                console.log('Автовоспроизведение заблокировано:', error);
+            });
+            
             setTimeout(() => {
                 envelopeScreen.style.display = 'none';
             }, 800);
